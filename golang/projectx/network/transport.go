@@ -9,7 +9,8 @@ type RPC struct {
 
 type Transport interface {
 	Consume() <-chan RPC
-	Connect(*LocalTransport) error
+	Connect(Transport) error
 	SendMessage(NetAddr, []byte) error
 	Addr() NetAddr
+	Peer(NetAddr) *LocalTransport
 }
