@@ -94,7 +94,7 @@ func (b *Block) DecodeBinary(r io.Reader) error {
 	}
 
 	for _, tx := range b.Transactions {
-		if err := tx.DecodBinary(r); err != nil {
+		if err := tx.DecodeBinary(r); err != nil {
 			return err
 		}
 	}
